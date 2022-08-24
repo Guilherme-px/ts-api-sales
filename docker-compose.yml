@@ -5,6 +5,7 @@ services:
         build: .
         entrypoint: .docker/entrypoint.sh
         container_name: apivendas-app
+        restart: always
         ports:
           - "3333:3333"
         volumes:
