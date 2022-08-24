@@ -7,11 +7,11 @@ interface iRequest {
     id: string;
 }
 
-class ShowProductService {
-    public async execute({ id }: iRequest): Promise<Product | undefined> {
+class ListProductByIdService {
+    public async execute({ id }: iRequest): Promise<Product> {
         const productRepository = getCustomRepository(ProductRepository);
 
-        const product = productRepository.findOne(id);
+        const product = await productRepository.findOne(id);
 
         if (!product) throw new AppError('Product not found');
 
@@ -19,4 +19,4 @@ class ShowProductService {
     }
 }
 
-export default ShowProductService;
+export default ListProductByIdService;
