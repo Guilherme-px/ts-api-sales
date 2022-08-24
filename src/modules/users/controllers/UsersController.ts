@@ -5,7 +5,7 @@ class UsersController {
     public async get(req: Request, res: Response): Promise<Response> {
         const listUser = new ListUserService();
 
-        const users = listUser.execute();
+        const users = await listUser.execute();
 
         return res.json(users);
     }
